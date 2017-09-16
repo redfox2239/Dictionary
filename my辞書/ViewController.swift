@@ -370,15 +370,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Dispose of any resources that can be recreated.
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let l = UILabel()
-        l.backgroundColor = UIColor.clearColor()
-        l.font = UIFont.boldSystemFontOfSize(30)
-        l.textColor = UIColor.blackColor()
+        l.backgroundColor = UIColor.clear
+        l.font = UIFont.boldSystemFont(ofSize: 30)
+        l.textColor = UIColor.black
         if(section == 0){
             l.text = "犬"
         }else{
@@ -399,11 +399,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return title
     }*/
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
             return self.dictionaryData.count
         }else{
@@ -411,20 +411,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) 
             cell.textLabel?.text = self.dictionaryData[indexPath.row]
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("listCell2", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell2", for: indexPath) 
             cell.textLabel?.text = self.dictionaryData2[indexPath.row]
             cell.detailTextLabel?.text = "猫 No.\(indexPath.row)"
             return cell
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 0){
             self.query = self.dictionaryData[indexPath.row]
             self.type = "wikipedia"
@@ -432,11 +432,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.query = self.dictionaryData2[indexPath.row]
             self.type = "google_img"
         }
-        performSegueWithIdentifier("moveDetailView", sender: nil)
+        performSegue(withIdentifier: "moveDetailView", sender: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! DetailViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! DetailViewController
         vc.query = self.query
         vc.type = self.type
     }

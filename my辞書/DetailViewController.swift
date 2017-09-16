@@ -11,8 +11,8 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailWebView: UIWebView!
-    var query: String!
-    var type: String!
+    var query: String = ""
+    var type: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ class DetailViewController: UIViewController {
             urlString = "https://www.google.co.jp/search?q=\(self.query)&es_sm=91&prmd=iv&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAWoVChMI2ZKO5rTXxwIVjJCUCh1F3Q4r&biw=414&bih=736&dpr=3"
         }
         
-        let url = NSURL(string: urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        let request = URLRequest(url: url!)
         self.detailWebView.loadRequest(request)
         
     }

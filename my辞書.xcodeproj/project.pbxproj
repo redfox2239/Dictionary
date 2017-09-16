@@ -168,9 +168,11 @@
 				TargetAttributes = {
 					7F2A136D1B9690BB00772CC3 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0830;
 					};
 					7F2A13821B9690BB00772CC3 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0830;
 						TestTargetID = 7F2A136D1B9690BB00772CC3;
 					};
 				};
@@ -352,6 +354,7 @@
 				INFOPLIST_FILE = "my辞書/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -362,6 +365,7 @@
 				INFOPLIST_FILE = "my辞書/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -380,6 +384,7 @@
 				INFOPLIST_FILE = "my辞書Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my辞書.app/my辞書";
 			};
 			name = Debug;
@@ -395,6 +400,7 @@
 				INFOPLIST_FILE = "my辞書Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my辞書.app/my辞書";
 			};
 			name = Release;
